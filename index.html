@@ -353,17 +353,34 @@ function updateCountdown() {
 
 function announceTimeLeft(minutesLeft, secondsLeft) {
   // 特殊ケース：15秒以下
-	if (minutesLeft === 0 && secondsLeft <= 15) {
-		// 11以外の数値を先に処理
-		if (secondsLeft !== 11) {
-			speak(`${secondsLeft}`);
-		} else {
-			// 数値11の場合は漢数字で対応
-			speak("十一");
-		}
-  return;
-}
+  if (minutesLeft === 0 && secondsLeft <= 15) {
+    // 11以外の数値を先に処理
+    if (secondsLeft !== 11) {
+      speak(`${secondsLeft}`);
+    } else {
+      // 数値11の場合は漢数字で対応
+      speak("十一");
+    }
+    return;
+  }
 
+  // 5分10秒前から5分前までの毎秒読み上げ
+  if (minutesLeft === 5 && secondsLeft <= 10) {
+    speak(`${minutesLeft}分${secondsLeft}秒前`);
+    return;
+  }
+
+  // 4分10秒前から4分前までの毎秒読み上げ
+  if (minutesLeft === 4 && secondsLeft <= 10) {
+    speak(`${minutesLeft}分${secondsLeft}秒前`);
+    return;
+  }
+
+  // 1分10秒前から1分前までの毎秒読み上げ
+  if (minutesLeft === 1 && secondsLeft <= 10) {
+    speak(`${minutesLeft}分${secondsLeft}秒前`);
+    return;
+  }
   
   // 時間アナウンスのマッピング
   const announcements = {
