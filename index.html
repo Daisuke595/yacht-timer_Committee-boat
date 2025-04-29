@@ -69,7 +69,7 @@
 </head>
 <body>
   <div class="container">
-  <h1 style="color: #050dff;">Yacht Timer<span style="color: #cccccc; font-size: 16px; margin-left: 15px; font-weight: normal;">v.0.03.20.6</span> </h1>
+  <h1 style="color: #050dff;">Yacht Timer<span style="color: #cccccc; font-size: 16px; margin-left: 15px; font-weight: normal;">v.0.04.29.1</span> </h1>
     <p>「10時30分 スタート」「10時30分」などと話してください</p>
 
     <button id="startButton">スタート時刻設定</button>
@@ -365,20 +365,20 @@ function announceTimeLeft(minutesLeft, secondsLeft) {
   }
 
   // 5分10秒前から5分前までの毎秒読み上げ
-  if (minutesLeft === 5 && secondsLeft <= 10) {
-    speak(`${minutesLeft}分${secondsLeft}秒前`);
+  if (minutesLeft === 5 && secondsLeft <= 10 && secondsLeft >= 1) {
+    speak(`${minutesLeft}分${secondsLeft}秒`);
     return;
   }
 
   // 4分10秒前から4分前までの毎秒読み上げ
-  if (minutesLeft === 4 && secondsLeft <= 10) {
-    speak(`${minutesLeft}分${secondsLeft}秒前`);
+  if (minutesLeft === 4 && secondsLeft <= 10 && secondsLeft >= 1) {
+    speak(`${minutesLeft}分${secondsLeft}秒`);
     return;
   }
 
   // 1分10秒前から1分前までの毎秒読み上げ
-  if (minutesLeft === 1 && secondsLeft <= 10) {
-    speak(`${minutesLeft}分${secondsLeft}秒前`);
+  if (minutesLeft === 1 && secondsLeft <= 10 && secondsLeft >= 1) {
+    speak(`${minutesLeft}分${secondsLeft}秒`);
     return;
   }
   
